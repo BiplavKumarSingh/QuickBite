@@ -1,0 +1,35 @@
+.choose{
+    padding: 37px 231px 43px 181px;
+}
+
+.choose .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 25px;
+    border-radius: 14px;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.342),
+    inset -20px -20px 60px rgba(255, 255, 255, 0.26)
+}
+.choose .select{
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 40px;
+}
+
+.choose .box .select .btn{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    border-radius: 18px;
+    border: 2px solid tomato;
+    height: 32px;
+    padding: 7px 21px;
+    background-color: transparent;
+}
+
+.choose .box .select .btn a{
+    text-decoration: none;
+    color: tomato;
+}

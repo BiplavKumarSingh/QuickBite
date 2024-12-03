@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+    color: Black;
+}
+
+body {
+    overflow-x: hidden;
+    animation: fadein 4s linear;
+    opacity: 1;
+}
+@keyframes fadein {
+    from{opacity: 0;}
+}
+
+header {
+    padding: 20px 91px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .logo a img{
+    /* width: 100px; */
+    height: 72px;
+}
+
+nav{
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
+nav ul {
+    display: flex;
+    gap: 68px;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 16px 0;
+    /*font-family: Exo, sans-serif;*/
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 24px;
+    white-space: nowrap;
+}
+
+nav ul a{
+    text-decoration: none;
+}
+
+nav ul li:hover {
+    color: #0d6efd;
+    transition: all ease .3s;
+}
+
+header .btn{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    border-radius: 18px;
+    border: 2px solid tomato;
+    height: 32px;
+    padding: 7px 21px;
+    background-color: transparent;
+}
+
+header .btn a{
+    text-decoration: none;
+    color: tomato;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding: 33px 56px;
+    gap: 25px;
+}
+
+section .container{
+    width: 100%;
+    display: flex;
+    height: 45%;
+    /* background-color: antiquewhite; */
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+section .container .content{
+    display: flex;
+    padding: 31px 23px 45px 43px;
+    flex-direction: column;
+    gap: 30px;
+}
+
+section .container .btn{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    border-radius: 18px;
+    border: 2px solid tomato;
+    height: 32px;
+    padding: 7px 21px;
+    background-color: transparent;
+}
+
+section .container .btn a{
+    text-decoration: none;
+    color: tomato;
+}
+
+section .container .image{
+    width: 53%;
+    height: 346px;
+    /* contain: content; */
+    animation: slide 5s ease-in infinite;
+}
+@keyframes slide {
+    0%{
+        content: url(./../image/upload/Burger.jpg);
+    }
+    50%{
+        content: url(./../image/upload/Pizza.jpg);
+    }
+    100%{
+        content: url(./../image/upload/shawarma.jpg);
+    }
+}
+
+section .food{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+section .food-list{
+width: 21%;
+padding-bottom: 30px;
+}
+
+section .image{
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+section .food .food-list .image img{
+    width: 100%;
+} 
+
+section .food .image .btn{
+    border: 2px solid tomato;
+    width: 38%;
+    border-radius: 18px;
+}
+
+section .food .image .btn a{
+    text-decoration: none;
+    color: tomato;
+    padding: 5px 9px;
+}
+
+section .food-more{
+    display: grid;
+    grid-template-columns: 1fr 1fr 0fr;
+}
+
+section .btn{
+    border: 2px solid tomato;
+    border-radius: 18px;
+}
+
+section .btn a{
+    text-decoration: none;
+    color: tomato;
+    padding: 12px 17px;
+}
+
+footer{
+    padding: 15px 50px;
+}
+
+footer .info{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}

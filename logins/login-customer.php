@@ -1,6 +1,6 @@
-<?php require "./../config/config.php"; ?>
-
 <?php
+require "./../config/config.php";
+session_start();
 if (isset($_POST['submit'])) {
     // Input validation
     if (empty($_POST['email']) || empty($_POST['password'])) {

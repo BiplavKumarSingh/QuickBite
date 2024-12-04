@@ -1,6 +1,6 @@
-<?php require "./../config/config.php"; ?>
-
 <?php
+require "./../config/config.php";
+session_start();
 if (isset($_POST['submit'])) {
     // Input validation
     if (empty($_POST['email']) || empty($_POST['password'])) {
@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
         $password = $_POST['password'];
 
         // Use prepared statements to prevent SQL injection
-        $stmt = $conn->prepare("SELECT * FROM seller WHERE email = ?");
+        $stmt = $conn->prepare("SELECT * FROM customer WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();

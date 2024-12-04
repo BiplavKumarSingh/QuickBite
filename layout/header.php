@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,22 +59,25 @@
             </ul>
         </nav>
         <div class="btn">
-            <?php if(isset($_SESSION['username'])) : ?>
-                <a href="./choose.php">Login</a>
-            <?php else : ?>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle">
-                        <div class="avatar-header">
-                            <img src="path_to_avatar.jpg" alt="User Avatar">
-                        </div>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="transaction.html">Transactions History</a>
-                        <a class="dropdown-item" href="setting.html">Settings</a>
-                        <a class="dropdown-item" href="#">Log out</a>
-                    </div>
-                </li>
-            <?php endif; ?>
+        <?php if (isset($_SESSION['username'])) : ?>
+        <!-- If user is logged in, show dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle">
+                <div class="avatar-header">
+                    <img src="path_to_avatar.jpg" alt="User Avatar">
+                </div>
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="transaction.html">Transactions History</a>
+                <a class="dropdown-item" href="setting.html">Settings</a>
+                <a class="dropdown-item" href="./layout/logout.php">Log out</a>
+            </div>
+        </li>
+    <?php else : ?>
+        <!-- If user is not logged in, show login link -->
+        <a href="./choose.php">Login</a>
+    <?php endif; ?>
+</div>
         </div>
     </header>
     <hr>
@@ -93,6 +99,3 @@
             }
         });
     </script>
-</body>
-
-</html>

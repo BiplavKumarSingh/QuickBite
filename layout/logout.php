@@ -2,11 +2,14 @@
 // Start the session
 session_start();
 
-// Destroy all session data
+// Unset all session data
 session_unset();
+
+// Destroy the session
 session_destroy();
 
-// Redirect to the homepage (or login page)
-header("Location: ./index.php"); // Or redirect to login page: header("Location: ./login.php");
-exit(); // Ensures the script stops after the redirection
+
+// Redirect to index.php (outside the layout folder)
+header("Location: ./index.php"); // Navigate up one directory level
+exit(); // Stop the script here to prevent further execution
 ?>

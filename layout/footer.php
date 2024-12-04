@@ -18,6 +18,3 @@
     <hr>
     <h4>copyright &copy 2024. ALl right reserved</h4>
 </footer>
-</body>
-
-</html>

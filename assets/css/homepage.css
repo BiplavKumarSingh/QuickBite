@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
 }
 
 h1,
@@ -17,15 +16,10 @@ li {
 
 body {
     overflow-x: hidden;
-    animation: fadein 4s linear;
-    opacity: 1;
-}
-@keyframes fadein {
-    from{opacity: 0;}
 }
 
 header {
-    padding: 20px 91px;
+    /* padding: 20px 91px; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -59,11 +53,13 @@ nav ul li {
 
 nav ul a{
     text-decoration: none;
+    color: black;
 }
 
 nav ul li:hover {
-    color: #0d6efd;
-    transition: all ease .3s;
+    color: black;
+    font-weight: bolder;
+    transition: all ease 1.3s;
 }
 
 header .btn{
@@ -71,20 +67,22 @@ header .btn{
     width: fit-content;
     align-items: center;
     border-radius: 18px;
-    border: 2px solid tomato;
+    border: 2px solid black;
+    background-color: #20AD96;
     height: 32px;
-    padding: 7px 21px;
-    background-color: transparent;
+    padding: 2px 32px;
+    /* background-color: transparent; */
 }
 
 header .btn a{
     text-decoration: none;
-    color: tomato;
+    color: white;
 }
 
 section{
     display: flex;
     flex-direction: column;
+    background-color: #FAF8F6;
     align-items: center;
     overflow: hidden;
     padding: 33px 56px;
@@ -107,29 +105,42 @@ section .container .content{
     gap: 30px;
 }
 
+section .container .content h1{
+    font-weight: 900;
+    font-size: xxx-large;
+    color: darkslategray;
+}
+
+section .container .content p{
+    font-weight: 500;
+    font-size: large;
+    color: darkslategray;
+}
+
 section .container .btn{
     display: flex;
     width: fit-content;
     align-items: center;
     border-radius: 18px;
-    border: 2px solid tomato;
+    border: 2px solid black;
+    background-color: #20AD96;
     height: 32px;
     padding: 7px 21px;
-    background-color: transparent;
+    /* background-color: transparent; */
 }
 
 section .container .btn a{
     text-decoration: none;
-    color: tomato;
+    color: white;
 }
 
 section .container .image{
     width: 53%;
-    height: 346px;
+    /* height: 346px; */
     /* contain: content; */
-    animation: slide 5s ease-in infinite;
+    /* animation: slide 5s ease-in infinite; */
 }
-@keyframes slide {
+/* @keyframes slide {
     0%{
         content: url(./../image/upload/Burger.jpg);
     }
@@ -139,6 +150,12 @@ section .container .image{
     100%{
         content: url(./../image/upload/shawarma.jpg);
     }
+} */
+
+section .heading h1{
+    padding-top: 22px;
+    padding-bottom: 22px;
+    color: darkslategray;
 }
 
 section .food{
@@ -188,6 +205,50 @@ section .btn a{
     text-decoration: none;
     color: tomato;
     padding: 12px 17px;
+}
+
+section .review{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section .review .content{
+    display: flex;
+    gap: 70px;
+    padding: 31px 23px 45px 43px;
+    justify-content: center;
+}
+
+section .review .content .con{
+    display: flex;
+    padding: 31px 23px 45px 43px;
+    flex-direction: column;
+    gap: 30px;
+    height: 123px;
+    border-radius: 25px;
+    box-shadow: 20px 20px 60px rgb(0 0 0 / 60%), inset -20px -20px 60px rgb(255 255 255);
+}
+
+section .review .content .con .person{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+section .review .content .con .person .box{
+    border: 1px solid;
+    height: 30px;
+    width: 30px;
+    border-radius: 25px;
+    content: url(./../image/upload/images.jpeg);
+}
+
+section .review .content .food-image img{
+    width: 425px;
+    height: 312px;
+    border-radius: 29px;
 }
 
 footer{

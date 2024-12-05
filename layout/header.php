@@ -50,7 +50,7 @@ session_start();
 <body>
     <header>
         <div class="logo">
-            <a href="./index.php">QuickBite</a>
+            <a href="./index.php"><img src="./assets/image/icon/download.png" alt=""></a>
         </div>
         <nav>
             <ul>

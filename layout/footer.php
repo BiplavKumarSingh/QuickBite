@@ -16,5 +16,5 @@
         </div>
     </div>
     <hr>
-    <h4>copyright &copy 2024. ALl right reserved</h4>
+    <h4>copyright &copy 2024. ALL right reserved</h4>
 </footer>

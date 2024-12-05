@@ -10,6 +10,6 @@ session_destroy();
 
 
 // Redirect to index.php (outside the layout folder)
-header("Location: ./index.php"); // Navigate up one directory level
+header("Location: index.php"); // Navigate up one directory level
 exit(); // Stop the script here to prevent further execution
 ?>

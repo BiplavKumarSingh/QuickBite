@@ -8,6 +8,8 @@
     align-items: center;
     padding: 20px;
     gap: 25px;
+    justify-content: center;
+    height: 315px;
     border-radius: 14px;
     box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.342),
     inset -20px -20px 60px rgba(255, 255, 255, 0.26)

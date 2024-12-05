@@ -1,7 +1,7 @@
 <?php include_once "./layout/header.php" ?>
 <div class="choose">
     <div class="box">
-        <div class="chooseBoxTitle">Choose a category</div>
+        <div class="chooseBoxTitle"><h1>Choose a category</h1></div>
         <div class="select">
             <div class="btn">
                 <a href="./logins/register-customer.php">Customer</a>

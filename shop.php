@@ -107,4 +107,5 @@
         </div>
     </div>
 </section>
+<hr>
 <?php include_once "./layout/footer.php" ?>

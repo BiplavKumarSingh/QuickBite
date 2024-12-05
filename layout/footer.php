@@ -1,9 +1,9 @@
 <footer>
     <div class="info">
         <div class="main">
-            QuickBite
+            <h2>QuickBite</h2>
             <div class="more">
-                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, quo!</h4>
+                <h4 style="font-weight: normal;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, quo!</h4>
             </div>
         </div>
         <div class="contact">

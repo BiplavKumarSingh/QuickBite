@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
     <hr>
     <div class="choose">
         <div class="box">
-            <div class="chooseBoxTitle">Registration Form</div>
+            <div class="chooseBoxTitle"><h1>Registration Form</h1></div>
             <fieldset align="center">
                 <legend>Register</legend>
                 <form action="register-customer.php" method="post">

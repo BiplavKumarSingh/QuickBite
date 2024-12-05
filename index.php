@@ -69,6 +69,9 @@
             </div>
         </div>
     </div>
+    <div class="side-scroll">
+        <marquee behavior="scroll" direction="left" bgcolor="#20AD96" scrollamount="10%">More Product are on the way so stay tuned</marquee>
+    </div>
     <div class="review">
         <h1>Our Customers Reviews</h1>
         <div class="content">
@@ -82,6 +85,32 @@
             </div>
             <div class="food-image">
                 <img src="./assets/image/upload/pngtree-assorted-fast-food-varieties-displayed-on-a-textured-gray-table-image_13609478.png" alt="">
+            </div>
+        </div>
+        <div class="content">
+        <div class="food-image">
+                <img src="./assets/image/upload/Burger set.jpg" alt="">
+            </div>
+            <div class="con">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Neque quisquam dolor rerum. Enim doloremque, ratione <br> dolorem odit beatae hic velit!</p>
+                <div class="person">
+                    <div class="box">
+                    </div>
+                    <p>Hyom</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="con">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Neque quisquam dolor rerum. Enim doloremque, ratione <br> dolorem odit beatae hic velit!</p>
+                <div class="person">
+                    <div class="box">
+                    </div>
+                    <p>Hyom</p>
+                </div>
+            </div>
+            <div class="food-image">
+                <img src="./assets/image/upload/download.jpeg" alt="">
             </div>
         </div>
     </div>

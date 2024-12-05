@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+    color: darkslategray;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+header {
+    /* padding: 20px 91px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .logo a img{
+    /* width: 100px; */
+    height: 72px;
+}
+
+nav{
+    justify-content: center;
+    display: flex;
+    gap: inherit;
+}
+
+nav ul {
+    display: flex;
+    gap: 68px;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 16px 0;
+    /*font-family: Exo, sans-serif;*/
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 24px;
+    white-space: nowrap;
+}
+
+nav ul a{
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li:hover {
+    color: black;
+    font-weight: bolder;
+    transition: all ease 1.3s;
+}
+
+.choose{
+    padding: 37px 231px 43px 181px;
+}
+
+.choose .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 25px;
+    justify-content: center;
+    height: 315px;
+    border-radius: 14px;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.342),
+    inset -20px -20px 60px rgba(255, 255, 255, 0.26)
+}
+
+.choose .box .exsits{
+    border: 1px solid;
+    border-radius: 25px;
+    background-color: #20AD96;
+}
+
+.choose .box .exsits a{
+    text-decoration: none;
+    color: black;
+    padding: 0px 10px 0px 9px
+}

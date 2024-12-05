@@ -1,8 +1,8 @@
 <?php
-require "./../config/config.php"; // Ensure the config file is properly set up to connect to your database
 session_start();
+require "./../config/config.php"; // Make sure this file connects to your database
 
-// Check if form is submitted
+// Check if the form is submitted
 if (isset($_POST['submit'])) {
     // Input validation
     if (empty($_POST['email']) || empty($_POST['password'])) {
@@ -18,19 +18,21 @@ if (isset($_POST['submit'])) {
         $stmt->execute();
         $result = $stmt->get_result();
 
-        // Validate email
+        // If email exists in seller table, handle seller login
         if ($result->num_rows > 0) {
-            $fetch = $result->fetch_assoc();
+            $user = $result->fetch_assoc();
 
-            // Validate password
-            if (password_verify($password, $fetch['mypassword'])) {
-                // Successful login; set session variables
+            // Check if the password is correct
+            if (password_verify($password, $user['mypassword'])) {
+                // Set session variables for logged-in seller
                 $_SESSION['logged_in'] = true;
-                $_SESSION['username'] = $fetch['username'];
-                $_SESSION['email'] = $fetch['email'];
+                $_SESSION['seller_id'] = $user['seller_id'];  // Set seller_id in session
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['role'] = 'seller'; // Set role as seller
 
-                // Redirect to product page
-                header('Location: ./add-product.php');
+                // Redirect to seller dashboard
+                header('Location: ./../seller-dash.php');
                 exit;
             } else {
                 echo "<script>alert('Invalid email or password');</script>";
@@ -49,41 +51,17 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../assets/css/homepage.css">
-    <link rel="stylesheet" href="./../assets/css/choose.css">
-    <title>QuickBite - Seller Login</title>
+    <title>Login</title>
 </head>
 <body>
-    <header>
-        <div class="logo">
-        <a href="./../index.php"><img src="./../assets/image/icon/download.png" alt=""></a>
-        </div>
-        <nav>
-            <ul>
-                <a href="./../shop.php"><li>Shop</li></a>
-                <a href="./../cart.php"><li>Cart</li></a>
-            </ul>
-        </nav>
-        <div class="btn">
-            <a href="./../choose.php">Login</a>
-        </div>
-    </header>
-    <hr>
-    <div class="choose">
-        <div class="box">
-            <div class="chooseBoxTitle">Seller Login</div>
-            <fieldset align="center">
-                <legend>Login</legend>
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required><br><br>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required><br><br>
-                    <button name="submit" type="submit">Login</button>
-                </form>
-            </fieldset>
-        </div>
-    </div>
-    <?php include_once "./../layout/footer.php"; ?>
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password: </label>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="submit" name="submit">Login</button>
+    </form>
 </body>
 </html>

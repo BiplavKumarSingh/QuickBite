@@ -1,9 +1,7 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +44,6 @@ session_start();
         }
     </style>
 </head>
-
 <body>
     <header>
         <div class="logo">
@@ -59,25 +56,32 @@ session_start();
             </ul>
         </nav>
         <div class="btn">
-        <?php if (isset($_SESSION['username'])) : ?>
-        <!-- If user is logged in, show dropdown -->
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle">
-                <div class="avatar-header">
-                    <img src="path_to_avatar.jpg" alt="User Avatar">
-                </div>
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="transaction.html">Transactions History</a>
-                <a class="dropdown-item" href="setting.html">Settings</a>
-                <a class="dropdown-item" href="./layout/logout.php">Log out</a>
-            </div>
-        </li>
-    <?php else : ?>
-        <!-- If user is not logged in, show login link -->
-        <a href="./choose.php">Login</a>
-    <?php endif; ?>
-</div>
+            <?php if (isset($_SESSION['username'])) : ?>
+                <!-- If user is logged in, show dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle">
+                        <div class="avatar-header">
+                            <img src="path_to_avatar.jpg" alt="User Avatar">
+                        </div>
+                    </a>
+                    <div class="dropdown-menu">
+                        <?php
+                        // Check if the user is a seller or a customer and display appropriate options
+                        if (isset($_SESSION['role']) && $_SESSION['role'] == 'seller') :
+                        ?>
+                            <a class="dropdown-item" href="./seller-dash.php">Dashboard</a>
+                            <a class="dropdown-item" href="setting.html">Settings</a>
+                        <?php else : ?>
+                            <a class="dropdown-item" href="transaction.html">Transaction History</a>
+                            <a class="dropdown-item" href="setting.html">Settings</a>
+                        <?php endif; ?>
+                        <a class="dropdown-item" href="./layout/logout.php">Log out</a>
+                    </div>
+                </li>
+            <?php else : ?>
+                <!-- If user is not logged in, show login link -->
+                <a href="./choose.php">Login</a>
+            <?php endif; ?>
         </div>
     </header>
     <hr>
@@ -99,3 +103,5 @@ session_start();
             }
         });
     </script>
+</body>
+</html>

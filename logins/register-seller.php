@@ -10,14 +10,14 @@ if (isset($_POST['submit'])) {
         $username = $_POST['username'];
         
         // Check if email or username already exists in the database
-        $checkEmailQuery = $conn->prepare("SELECT COUNT(*) FROM customer WHERE email = ?");
+        $checkEmailQuery = $conn->prepare("SELECT COUNT(*) FROM seller WHERE email = ?");
         $checkEmailQuery->bind_param("s", $email);
         $checkEmailQuery->execute();
         $checkEmailQuery->bind_result($emailExists);
         $checkEmailQuery->fetch();
         $checkEmailQuery->close();
         
-        $checkUsernameQuery = $conn->prepare("SELECT COUNT(*) FROM customer WHERE username = ?");
+        $checkUsernameQuery = $conn->prepare("SELECT COUNT(*) FROM seller WHERE username = ?");
         $checkUsernameQuery->bind_param("s", $username);
         $checkUsernameQuery->execute();
         $checkUsernameQuery->bind_result($usernameExists);
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 
                     // Execute the query
                     if ($insert->execute()) {
-                        echo "<script>window.location.href='./login-customer.php'</script>";
+                        echo "<script>window.location.href='./login-seller.php'</script>";
                     } else {
                         echo "<script>alert('Error: Could not execute the query.');</script>";
                     }
@@ -113,7 +113,7 @@ if (isset($_POST['submit'])) {
                 </form>
             </fieldset>
             <div class="exsits">
-                <a href="./login-customer.php">Already have a account?</a>
+                <a href="./login-seller.php">Already have a account?</a>
             </div>
         </div>
     </div>

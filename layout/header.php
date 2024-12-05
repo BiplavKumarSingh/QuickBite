@@ -15,8 +15,8 @@ session_start();
         .dropdown-menu {
             display: none; /* Initially hide the dropdown */
             position: absolute;
-            top: 40px;
-            right: 0;
+            top: 58px;
+            right: 151px;
             background-color: white;
             border: 1px solid #ddd;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);

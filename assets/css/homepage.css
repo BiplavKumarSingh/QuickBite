@@ -76,7 +76,7 @@ header .btn{
 
 header .btn a{
     text-decoration: none;
-    color: white;
+    color: Black;
 }
 
 section{
@@ -259,4 +259,9 @@ footer .info{
     display: flex;
     justify-content: space-around;
     padding-bottom: 20px;
+}
+
+.choose .box .exsits a{
+    text-decoration: none;
+    color: darkslategray;
 }

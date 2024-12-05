@@ -1,13 +1,16 @@
 <?php
-require "./../config/config.php";
+require "./../config/config.php"; // Ensure the config file is properly set up to connect to your database
 session_start();
+
+// Check if form is submitted
 if (isset($_POST['submit'])) {
     // Input validation
     if (empty($_POST['email']) || empty($_POST['password'])) {
-        echo "<script>alert('One or more inputs are missing');</script>";
+        echo "<script>alert('Please fill in all fields');</script>";
     } else {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        // Sanitize user inputs
+        $email = trim($_POST['email']);
+        $password = trim($_POST['password']);
 
         // Use prepared statements to prevent SQL injection
         $stmt = $conn->prepare("SELECT * FROM customer WHERE email = ?");
@@ -21,15 +24,19 @@ if (isset($_POST['submit'])) {
 
             // Validate password
             if (password_verify($password, $fetch['mypassword'])) {
-                // Successful login; set session variables or redirect as necessary
+                // Successful login; set session variables
+                $_SESSION['logged_in'] = true;
                 $_SESSION['username'] = $fetch['username'];
                 $_SESSION['email'] = $fetch['email'];
-                echo "<script>window.location.href='./../index.php'</script>";
+
+                // Redirect to product page
+                header('Location: ./../index.php');
+                exit;
             } else {
-                echo "<script>alert('Email or password is wrong');</script>";
+                echo "<script>alert('Invalid email or password');</script>";
             }
         } else {
-            echo "<script>alert('Email or password is wrong');</script>";
+            echo "<script>alert('Invalid email or password');</script>";
         }
 
         $stmt->close();
@@ -39,28 +46,22 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../assets/css/homepage.css">
     <link rel="stylesheet" href="./../assets/css/choose.css">
-    <title>QuickBite</title>
+    <title>QuickBite - Seller Login</title>
 </head>
-
 <body>
     <header>
         <div class="logo">
-            <a href="./../index.php">QuickBite</a>
+        <a href="./../index.php"><img src="./../assets/image/icon/download.png" alt=""></a>
         </div>
         <nav>
             <ul>
-                <a href="./../shop.php">
-                    <li>Shop</li>
-                </a>
-                <a href="./../cart.php">
-                    <li>Cart</li>
-                </a>
+                <a href="./../shop.php"><li>Shop</li></a>
+                <a href="./../cart.php"><li>Cart</li></a>
             </ul>
         </nav>
         <div class="btn">
@@ -68,24 +69,21 @@ if (isset($_POST['submit'])) {
         </div>
     </header>
     <hr>
-<div class="choose">
-    <div class="box">
-        <div class="chooseBoxTitle">Registration Form</div>
-        <fieldset align="center">
-            <legend>Register</legend>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <label for="fullname">Full Name:</label>
-                <input type="text" id="fullname" name="fullname" required><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required><br><br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br><br>
-                <button name="submit" type="submit">Submit</button>
-            </form>
-
-        </fieldset>
+    <div class="choose">
+        <div class="box">
+            <div class="chooseBoxTitle">Seller Login</div>
+            <fieldset align="center">
+                <legend>Login</legend>
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <button name="submit" type="submit">Login</button>
+                </form>
+            </fieldset>
+        </div>
     </div>
-</div>
-<?php include_once "./../layout/footer.php"?>
+    <?php include_once "./../layout/footer.php"; ?>
+</body>
+</html>

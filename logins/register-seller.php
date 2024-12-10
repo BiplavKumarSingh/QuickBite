@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
         $checkUsernameQuery->fetch();
         $checkUsernameQuery->close();
         
-        // If email or username already exists, show an error
+        // If email or username already exists,
         if ($emailExists > 0) {
             echo "<script>alert('Email already exists. Please use a different email address.');</script>";
         } elseif ($usernameExists > 0) {
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
         } else {
             $password = $_POST['password'];
             
-            // Check if password length is at least 8 characters
+            // password length is 8 characters or not
             if (strlen($password) < 8) {
                 echo "<script>alert('Password must be at least 8 characters long.');</script>";
             } else {
